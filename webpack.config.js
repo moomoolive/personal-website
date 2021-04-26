@@ -1,5 +1,8 @@
 const path = require('path')
+
 const htmlWebpackPlugin = require('html-webpack-plugin')
+const ESlintWebpackPlugin = require('eslint-webpack-plugin')
+const AddAssetHtmlPlugin = require('add-asset-html-webpack-plugin');
 
 module.exports = {
     mode: "development",
@@ -11,7 +14,12 @@ module.exports = {
     devtool: 'inline-source-map',
     plugins: [
         new htmlWebpackPlugin({
-            title: "Mostafa's Website"
+            title: "Mostafa Elbannan",
+            template: './public/index.html'
+        }),
+        new ESlintWebpackPlugin({}),
+        new AddAssetHtmlPlugin({ 
+            filepath: require.resolve('./service-worker.js')
         })
     ],
     devServer: {

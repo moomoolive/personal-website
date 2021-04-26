@@ -1,5 +1,8 @@
-const app = window.document.createElement('div')
-app.id = "app"
-app.innerHTML = "hello from webpack"
+import pwaHelpers from './libraries/pwa.js'
 
-window.document.body.appendChild(app)
+// eslint-disable-next-line
+if (process.env.NODE_ENV === 'production')
+    pwaHelpers.registerServiceWorker()
+
+const app = window.document.getElementById("app")
+app.innerHTML = "hello from webpack"
