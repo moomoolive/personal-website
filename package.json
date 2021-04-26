@@ -1,0 +1,34 @@
+{
+  "name": "mostafa-personal-website",
+  "version": "1.0.0",
+  "description": "My personal website",
+  "private": true,
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "serve": "webpack serve",
+    "build": "webpack --mode=production --no-devtool --progress"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/moomoolive/personal-website.git"
+  },
+  "keywords": [
+    "personal-website",
+    "portfolio"
+  ],
+  "author": "Mostafa Elbannan",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/moomoolive/personal-website/issues"
+  },
+  "homepage": "https://github.com/moomoolive/personal-website#readme",
+  "devDependencies": {
+    "@babel/core": "^7.13.16",
+    "@babel/preset-env": "^7.13.15",
+    "babel-loader": "^8.2.2",
+    "html-webpack-plugin": "^5.3.1",
+    "webpack": "^5.35.1",
+    "webpack-cli": "^4.6.0",
+    "webpack-dev-server": "^3.11.2"
+  }
+}
