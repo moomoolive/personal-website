@@ -1,38 +1,29 @@
 {
-  "name": "mostafa-personal-website",
-  "version": "1.0.0",
-  "description": "My personal website",
+  "name": "personal-website",
+  "version": "0.1.0",
   "private": true,
   "scripts": {
-    "serve": "webpack serve",
-    "build": "webpack --mode=production --no-devtool --progress",
-    "pwa": "npm run build && serve dist -l 8081"
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build",
+    "lint": "vue-cli-service lint"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/moomoolive/personal-website.git"
+  "dependencies": {
+    "core-js": "^3.6.5",
+    "register-service-worker": "^1.7.1",
+    "vue": "^2.6.11",
+    "vue-router": "^3.2.0"
   },
-  "keywords": [
-    "personal-website",
-    "portfolio"
-  ],
-  "author": "Mostafa Elbannan",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/moomoolive/personal-website/issues"
-  },
-  "homepage": "https://github.com/moomoolive/personal-website#readme",
   "devDependencies": {
-    "@babel/core": "^7.13.16",
-    "@babel/preset-env": "^7.13.15",
-    "add-asset-html-webpack-plugin": "^3.2.0",
-    "babel-loader": "^8.2.2",
-    "eslint": "^7.25.0",
-    "eslint-webpack-plugin": "^2.5.4",
-    "html-webpack-plugin": "^5.3.1",
-    "serve": "^11.3.2",
-    "webpack": "^5.35.1",
-    "webpack-cli": "^4.6.0",
-    "webpack-dev-server": "^3.11.2"
+    "@vue/cli-plugin-babel": "~4.5.0",
+    "@vue/cli-plugin-eslint": "~4.5.0",
+    "@vue/cli-plugin-pwa": "~4.5.0",
+    "@vue/cli-plugin-router": "~4.5.0",
+    "@vue/cli-service": "~4.5.0",
+    "babel-eslint": "^10.1.0",
+    "eslint": "^6.7.2",
+    "eslint-plugin-vue": "^6.2.2",
+    "node-sass": "^4.12.0",
+    "sass-loader": "^8.0.2",
+    "vue-template-compiler": "^2.6.11"
   }
 }
