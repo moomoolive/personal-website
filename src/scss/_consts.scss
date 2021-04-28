@@ -1,0 +1,32 @@
+@use "sass:map";
+
+// breakpoints
+// use with min-width media queries
+// you'll probably notice that mobile width isn't here
+// that's because the website assumes mobile width by default
+$tabletWidth: 768px;
+$desktopWidth: 992px;
+
+$appMinimumWidth: 350px;
+
+$colors: (
+    "dark-grey": #121212,
+    "grey": #2A2A2A,
+    "light-grey": #505050,
+    "light-purple": #ffa7ff,
+    "purple": #ff72ff,
+    "dark-purple": #BF5FFF,
+    "light-blue": #00BFFF,
+    "light-green": #90ee90,
+    "light-orange": #ffc04c,
+    "light-red": #ff6347,
+    "off-white": #FDFDFD,
+);
+
+@function getColor($name: 'red', $opacity: 1) {
+    @return rgba(map-get($colors, $name), $opacity)
+};
+
+@mixin floatingBoxShadowDarkBackground() {
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+}
