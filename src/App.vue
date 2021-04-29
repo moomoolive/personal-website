@@ -1,7 +1,9 @@
 <template>
   <div id="app">
     <app-header class="app-header" />
-    <router-view class="viewing-page" />
+    <vue-page-transition name="fade-in-right">
+      <router-view class="viewing-page" />
+    </vue-page-transition>
     <app-footer class="app-footer" />
   </div>
 </template>
@@ -27,7 +29,7 @@ export default {
   text-align: center;
   color: getColor("off-white");
   min-width: $appMinimumWidth;
-
+  overflow: hidden;
 }
 
 div {
@@ -44,6 +46,22 @@ body {
 button {
   outline: none;
   border: none;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: getColor("off-white");
+}
+
+::-webkit-scrollbar-thumb {
+  background: getColor("light-grey");
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: getColor("light-grey");
 }
 
 .app-header {

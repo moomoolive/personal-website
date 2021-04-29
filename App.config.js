@@ -1,5 +1,7 @@
 const contactConfig = {
-    email: "mostafaelbannan1@gmail.com"
+    email: process.env.VUE_APP_EMAIL,
+    github: process.env.VUE_APP_GITHUB,
+    linkedIn: process.env.VUE_APP_LINKEDIN
 }
 
 const appInfoConfig = {

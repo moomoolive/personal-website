@@ -1,38 +1,48 @@
 <template>
     <div class="navigation-container">
+        
         <div class="main-navigation">
+            
             <div class="website-logo " @click="redirect('/')">
                 <fa-icon icon="laptop-code" class="navigation-icon" />
             </div>
+
             <div class="left-side-navigation">
                 <fa-icon 
-                    class="navigation-icon expandable-menu" 
+                    :class="`navigation-icon expandable-menu${showNavigation ? ' open' : ''}`" 
                     icon="bars" 
                     @click="toggleNavigationMenu()" 
                 />
                 <div class="large-screen-navigation navigation-icon">
-                    <span class="large-screen-navigation-item" @click="redirect('/portfolio')">
-                        Portfolio
-                    </span>
-                    <span class="large-screen-navigation-item" @click="redirect('/about')">
-                        About
+                    <span 
+                        v-for="(pageInfo, pageIndex) in pageList" 
+                        :key="pageIndex"
+                        class="large-screen-navigation-item"
+                        @click="redirect(pageInfo.path)"
+                    >
+                        {{ pageInfo.name }}
                     </span>
                 </div>
             </div>
+            
         </div>
+
         <collapse-transition :duration="500">
             <div 
                 v-show="showNavigation" 
                 :class="`navigation-pages-list-container${showNavigation ? '' : ' closed'}`"
             >
-                <div class="navigation-page-container" @click="redirect('/portfolio')">
-                    Portfolio
-                </div>
-                <div class="navigation-page-container" @click="redirect('/about')">
-                    About
+                <div 
+                    v-for="(pageInfo, pageIndex) in pageList" 
+                    :key="pageIndex"
+                    class="navigation-page-container"
+                    @click="redirect(pageInfo.path)"
+                >
+                    {{ pageInfo.name }}
                 </div>
             </div>
         </collapse-transition>
+
     </div>
 </template>
 
@@ -46,7 +56,12 @@ export default {
     },
     data() {
         return {
-            showNavigation: false
+            showNavigation: false,
+            pageList: [
+                { path: '/', name: 'Home' },
+                { path: '/portfolio', name: "Portfolio" },
+                { path: '/about', name: "About" },
+            ]
         }
     },
     methods: {
@@ -115,16 +130,16 @@ export default {
         color: getColor("dark-grey");
     }
 }
-
+ 
 .large-screen-navigation {
     display: none;
 }
 
 .large-screen-navigation-item {
     margin-right: 15px;
-    font-size: 23px;
+    font-size: 20px;
     position: relative;
-    bottom: 3px;
+    bottom: 5px;
 
     &:last-child {
         margin-right: 0;
@@ -132,6 +147,12 @@ export default {
 
     &:hover {
         color: getColor('light-green');
+    }
+}
+
+.expandable-menu {
+    &.open {
+        color: getColor("light-blue");
     }
 }
 
@@ -156,9 +177,8 @@ export default {
       display: block;
   }
 
-  .main-navigation {
-      padding-top: 12px;
-      padding-bottom: 12px;
+  .website-logo {
+      top: 12px;
   }
   
 }

@@ -74,7 +74,7 @@
 
         <div>
           <button class="portfolio-button" @click="$router.push('/portfolio')">
-            My Portfolio
+            Portfolio
           </button>
         </div>
 
@@ -104,7 +104,10 @@ export default {
 .landing-page-message-container-layer {
   position: absolute;
   top: 23vh;
-  width: 100vw;
+  left: 5vw;
+  width: 90vw;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .landing-page-message-container {
@@ -128,7 +131,7 @@ export default {
   margin-top: 12px;
   margin-left: 15px;
   margin-right: 15px;
-  cursor: pointer;
+  cursor: default;
 }
 
 .languages-container {
@@ -160,7 +163,9 @@ export default {
 
 .homepage-background {
   height: 95vh !important;
-  width: 100vw !important;
+  width: 95vw !important;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 @media screen and (min-width: $tabletWidth) {
