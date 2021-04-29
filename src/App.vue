@@ -61,6 +61,11 @@ button {
   border: none;
 }
 
+a {
+  text-decoration: none;
+  color: getColor("light-purple");
+}
+
 ::-webkit-scrollbar {
   width: 10px;
 }

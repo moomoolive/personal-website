@@ -22,6 +22,11 @@
                     >
                         {{ pageInfo.name }}
                     </span>
+                    <span class="large-screen-navigation-item">
+                        <a :href="publicPath + 'resume.pdf'" download class="download-large-screen-navigation-item">
+                            Resume
+                        </a>
+                    </span>
                 </div>
             </div>
             
@@ -39,6 +44,11 @@
                     @click="redirect(pageInfo.path)"
                 >
                     {{ pageInfo.name }}
+                </div>
+                <div class="navigation-page-container">
+                    <a :href="publicPath + 'resume.pdf'" download>
+                        Resume
+                    </a>
                 </div>
             </div>
         </collapse-transition>
@@ -59,7 +69,8 @@ export default {
     data() {
         return {
             showNavigation: false,
-            pageList
+            pageList,
+            publicPath: process.env.BASE_URL
         }
     },
     methods: {
@@ -126,6 +137,18 @@ export default {
     &:hover {
         background: getColor('light-green');
         color: getColor("dark-grey");
+    }
+}
+
+a {
+    &:hover {
+        color: getColor("dark-grey");
+    }
+}
+
+.download-large-screen-navigation-item {
+    &:hover {
+        color: getColor('light-green');
     }
 }
  
