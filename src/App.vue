@@ -1,20 +1,35 @@
 <template>
   <div id="app">
+
+    <particles-bg 
+      color="#00BFFF" 
+      type="cobweb"
+      class="homepage-background"
+    />
+
     <app-header class="app-header" />
-    <router-view class="viewing-page" />
+
+    <vue-page-transition name="fade-in-right">
+      <router-view class="viewing-page" />
+    </vue-page-transition>
+    
     <app-footer class="app-footer" />
+
   </div>
 </template>
 
 <script>
-import appHeader from './components/Header.vue'
+import appHeader from './components/header/main.vue'
 import appFooter from './components/Footer.vue'
+
+import { ParticlesBg } from "particles-bg-vue"
 
 export default {
   name: "AppMain",
   components: {
     appHeader,
-    appFooter
+    appFooter,
+    ParticlesBg
   }
 }
 </script>
@@ -27,7 +42,7 @@ export default {
   text-align: center;
   color: getColor("off-white");
   min-width: $appMinimumWidth;
-
+  overflow: hidden;
 }
 
 div {
@@ -46,6 +61,22 @@ button {
   border: none;
 }
 
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: getColor("off-white");
+}
+
+::-webkit-scrollbar-thumb {
+  background: getColor("grey");
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: getColor("grey");
+}
+
 .app-header {
   position: fixed;
   top: 0;
@@ -57,11 +88,24 @@ button {
   min-height: 90vh;
 }
 
+.homepage-background {
+  position: fixed;
+  height: 100vh !important;
+  width: 95vw !important;
+  left: 2.5vw;
+  top: 0;
+  z-index: -1;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 @media screen and (min-width: $tabletWidth) {
 
 }
 
 @media screen and (min-width: $desktopWidth) {
-  
+  .viewing-page {
+    padding-top: 65px;
+  }
 }
 </style>

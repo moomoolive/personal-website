@@ -13,7 +13,7 @@ const routes = [
   {
     path: '/portfolio',
     name: "portfolio",
-    component: () => import(/* webpackPrefetch: true */ `@/views/portfolio.vue`)
+    component: () => import(/* webpackPrefetch: true */ `@/views/portfolio/main.vue`)
   },
   {
     path: '/about',
