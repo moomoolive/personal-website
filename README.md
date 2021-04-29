@@ -1,5 +1,7 @@
 # personal-website
 
+* Icons are provided by Font-Awesome under [license](https://fontawesome.com/license/free).      
+
 ## Project setup
 ```
 npm install
