@@ -1,0 +1,115 @@
+[
+    {
+        "name": "khateebRemind",
+        "pathToPhoto": "khateebRemind.png",
+        "description": {
+            "title": "Khateeb Remind",
+            "shortText": "Hey there this is a short description",
+            "longText": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
+        },
+        "tags": ["node", "express", "vue", "mongo"],
+        "technologies": {
+            "client": ["vue", "SASS", "PWA", "javascript"],
+            "server": ["express", "node", "mongo"],
+            "devOps": ["docker", "AWS"]
+        },
+        "externalLinks": [
+            {
+                "text": "Website",
+                "url": "https://app.khateebs.com/",
+                "icon": "globe",
+                "iconColor": "blue"
+            },
+            {
+                "text": "Source",
+                "url": "https://github.com/moomoolive/khateeb_remind",
+                "icon": "code-branch",
+                "iconColor": "green"
+            },
+            {
+                "text": "System Spec Doc",
+                "url": "https://github.com/moomoolive/khateeb_remind/tree/master/systemDesign",
+                "icon": "hammer",
+                "iconColor": "orange"
+            }
+            
+        ]
+    },
+    {
+        "name": "ilmConnect",
+        "pathToPhoto": "ilmConnect.png",
+        "description": {
+            "title": "IlmConnect",
+            "shortText": "Hey there this is a short description",
+            "longText": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
+        },
+        "tags": ["feathers", "node", "vue", "postgres"],
+        "technologies": {
+            "client": ["vue", "javascript", "bootstrap"],
+            "server": ["node", "feathers", "postgres"],
+            "devOps": ["docker", "AWS"]
+        },
+        "externalLinks": [
+            {
+                "text": "Website",
+                "url": "https://maqraathafs.ilmconnect.com/",
+                "icon": "globe",
+                "iconColor": "blue"
+            }
+        ]
+    },
+    {
+        "name": "burdy",
+        "pathToPhoto": "burdy.png",
+        "description": {
+            "title": "Burdy",
+            "shortText": "Hey there this is a short description",
+            "longText": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
+        },
+        "tags": ["python", "flask", "vue", "postgres"],
+        "technologies": {
+            "client": ["vue", "javascript", "bootstrap"],
+            "server": ["flask", "python", "postgres"],
+            "devOps": ["docker", "AWS"],
+            "other": ["tensorflow"]
+        },
+        "externalLinks": [
+            {
+                "text": "Source",
+                "url": "https://github.com/moomoolive/burdy",
+                "icon": "code-branch",
+                "iconColor": "green"
+            },
+            {
+                "text": "System Spec Doc",
+                "url": "https://github.com/moomoolive/burdy/blob/master/README.md",
+                "icon": "hammer",
+                "iconColor": "orange"
+            }
+        ]
+    },
+    {
+        "name": "pomodoroTimer",
+        "pathToPhoto": "pomodoroTimer.png",
+        "description": {
+            "title": "Pomodoro Timer",
+            "shortText": "Hey there this is a short description",
+            "longText": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
+        },
+        "tags": ["javascript", "html", "css", "PWA"],
+        "externalLinks": [
+            {
+                "text": "Website",
+                "url": "https://pomotimer.site/",
+                "icon": "globe",
+                "iconColor": "blue"
+            },
+            {
+                "text": "Source",
+                "url": "https://github.com/moomoolive/pomodoro_timer",
+                "icon": "code-branch",
+                "iconColor": "green"
+            }        
+        ]
+    }
+]

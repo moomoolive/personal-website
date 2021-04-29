@@ -49,6 +49,8 @@
 <script>
 import { CollapseTransition } from "@ivanv/vue-collapse-transition"
 
+import pageList from './headerLinks.json'
+
 export default {
     name: "appHeader",
     components: {
@@ -57,11 +59,7 @@ export default {
     data() {
         return {
             showNavigation: false,
-            pageList: [
-                { path: '/', name: 'Home' },
-                { path: '/portfolio', name: "Portfolio" },
-                { path: '/about', name: "About" },
-            ]
+            pageList
         }
     },
     methods: {
@@ -94,7 +92,7 @@ export default {
 }
 
 .main-navigation {
-    background: getColor("grey");
+    background: getColor("light-grey");
     padding-top: 7px;
     padding-bottom: 7px;
 }

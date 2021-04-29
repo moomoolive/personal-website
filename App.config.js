@@ -5,7 +5,8 @@ const contactConfig = {
 }
 
 const appInfoConfig = {
-    frameworkWebsite: 'https://vuejs.org/'
+    frameworkWebsite: 'https://vuejs.org/',
+    websiteRepo: "https://github.com/moomoolive/personal-website"
 }
 
 export default {
