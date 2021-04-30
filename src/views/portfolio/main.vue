@@ -198,7 +198,7 @@ export default {
                 case 'bootstrap':
                     return { icon: ['fab', 'bootstrap'], color: 'purple' }
                 case "AWS":
-                    return { icon: ['fab', 'amazon'], color: 'orange' }
+                    return { icon: ['fab', 'aws'], color: 'orange' }
                 case 'node':
                     return { icon: ['fab', 'node-js'], color: 'green' }
                 case 'tensorflow':
@@ -367,7 +367,7 @@ export default {
     color: getColor('light-purple');
 
     &.client {
-        color: getColor('light-green');
+        color: getColor('light-red');
     }
 
     &.server {
