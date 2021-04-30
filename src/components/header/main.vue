@@ -22,10 +22,11 @@
                     >
                         {{ pageInfo.name }}
                     </span>
-                    <span class="large-screen-navigation-item">
-                        <a :href="publicPath + 'resume.pdf'" download class="download-large-screen-navigation-item">
-                            Resume
-                        </a>
+                    <span 
+                        class="large-screen-navigation-item"
+                        @click="openInNewTab(resumeLink)"
+                    >
+                        Resume
                     </span>
                 </div>
             </div>
@@ -45,10 +46,11 @@
                 >
                     {{ pageInfo.name }}
                 </div>
-                <div class="navigation-page-container">
-                    <a :href="publicPath + 'resume.pdf'" download>
-                        Resume
-                    </a>
+                <div 
+                    class="navigation-page-container" 
+                    @click="openInNewTab(resumeLink)"
+                >
+                    Resume
                 </div>
             </div>
         </collapse-transition>
@@ -61,6 +63,10 @@ import { CollapseTransition } from "@ivanv/vue-collapse-transition"
 
 import pageList from './headerLinks.json'
 
+import urlHelpers from '@/libraries/urls.js'
+
+import Config from '$config'
+
 export default {
     name: "appHeader",
     components: {
@@ -70,7 +76,7 @@ export default {
         return {
             showNavigation: false,
             pageList,
-            publicPath: process.env.BASE_URL
+            resumeLink: Config.externalLinksConfig.resume
         }
     },
     methods: {
@@ -85,6 +91,9 @@ export default {
                 return
             this.closeNavigationMenu()
             return this.$router.push(path)
+        },
+        openInNewTab(url="https://random.site") {
+            return urlHelpers.openURLInNewTab(url)
         }
     }
 }

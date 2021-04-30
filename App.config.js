@@ -4,6 +4,10 @@ const contactConfig = {
     linkedIn: process.env.VUE_APP_LINKEDIN
 }
 
+const externalLinksConfig = {
+    resume: process.env.VUE_APP_RESUME
+}
+
 const appInfoConfig = {
     frameworkWebsite: 'https://vuejs.org/',
     websiteRepo: "https://github.com/moomoolive/personal-website"
@@ -15,5 +19,8 @@ export default {
     },
     get appInfoConfig() {
         return appInfoConfig
+    },
+    get externalLinksConfig() {
+        return externalLinksConfig
     }
 }
