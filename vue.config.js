@@ -21,5 +21,15 @@ module.exports = {
                 "$config": path.resolve(__dirname, 'App.config.js')
             }
         }
+    },
+    // remove all comments from build files
+    chainWebpack: config => {
+        config.optimization.minimizer('terser').tap(args => {
+            args[0].terserOptions.output = {
+                ...args[0].terserOptions.output,
+                comments: false
+            }
+            return args
+        })
     }
 }
