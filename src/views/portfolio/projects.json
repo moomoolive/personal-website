@@ -4,8 +4,8 @@
         "pathToPhoto": "khateebRemind.png",
         "description": {
             "title": "Khateeb Remind",
-            "shortText": "Hey there this is a short description",
-            "longText": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
+            "shortText": "An app that automates khateeb scheduling and reminders (read more below), for institutions and mosques with many khateebs. This app was developed in response to issues the University of Calgary (UofC) Muslim Student Association (MSA) was having with scheduling khateebs.",
+            "longText": "Your probably asking yourself what a 'khateeb' is, well a khateeb is an individual who gives the Friday prayer sermon for a Muslim Community, usaully at a mosque. Before this app was created the scheduling and reminding of dozens of khateebs at the UofC was done manually, which ultimately lead to some serious mishaps. This app essentially automates the scheduling of khateebs - think of it like a specialized Google Calendar. Khateebs login see their schedule, recieve push notifications and emails, and those who schedule khateebs have a central interface to track all khateebs and communicate with the schedule with them. There's much more to the app, if you're interested in learning more I suggest reading the System Specification Document. This is a free and open-source project."
         },
         "tags": ["node", "express", "vue", "mongo"],
         "technologies": {
@@ -40,8 +40,8 @@
         "pathToPhoto": "ilmConnect.png",
         "description": {
             "title": "IlmConnect",
-            "shortText": "Hey there this is a short description",
-            "longText": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
+            "shortText": "A commercial school management SASS-product for Islamic Schools. At it's height it had about 4,000 active users. Unfortunately, the product is no longer active, but legacy instances still exists like the link below.",
+            "longText": "This is a startup product I helped build a while ago and has recently been discontinued. It was a full school management system that included Parents, Admins, students, classes. As stated before at it's height it had about 4,000 users (about 10 schools or so). This product was worked on by a small team, and I personally worked on both sides of the stack for this particular project. For obvious reasons I'm not at liberty to show the source code."
         },
         "tags": ["feathers", "node", "vue", "postgres"],
         "technologies": {
@@ -63,8 +63,8 @@
         "pathToPhoto": "burdy.png",
         "description": {
             "title": "Burdy",
-            "shortText": "Hey there this is a short description",
-            "longText": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
+            "shortText": "A small app that scrapes Amazon reviews, then perform sentimental analysis on them labeling them into a few categories, including 'pain-points', 'what they liked about the product', etc.",
+            "longText": "In another life I used to do copywriting work, and one thing that copywriters do a lot is look at reviews, because usually you'll find the words your audience wants to hear in reviews. This app attempted to automate this process of looking through reviews, so copywriters could delve right into analysis of information and create great copy faster. This was intended to become a commerical product, but unfortunately for various reasons it didn't work out. If your interested in the full architecuture of the app take a look at the System Specification Document."
         },
         "tags": ["python", "flask", "vue", "postgres"],
         "technologies": {
@@ -93,8 +93,8 @@
         "pathToPhoto": "pomodoroTimer.png",
         "description": {
             "title": "Pomodoro Timer",
-            "shortText": "Hey there this is a short description",
-            "longText": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
+            "shortText": "A dead-simple pomodoro timer that I use on the daily. Works great offline and can be downloaded like a native app on mobile, tablet, and desktop.",
+            "longText": "I created this for a very simple reason: I wanted a timer that was ONLY a timer and not bloated with a million other features and ads, especially not ads. Originally I had an app downloaded that was like this but for some odd reason after an hour or two of using it, it would create absolutely MASSIVE memory leaks. So I decided to recreate it, in an open-source manner."
         },
         "tags": ["javascript", "html", "css", "PWA"],
         "externalLinks": [
