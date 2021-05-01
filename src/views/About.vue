@@ -1,16 +1,20 @@
 <template>
     <div>
         <div class="content-container">
+
+        <div class="description-preheader">
+            بسم الله الرحمن الرحيم
+        </div>
+
+        <div class="my-picture-container">
             <img 
                 src="@/assets/me.jpg"
                 class="my-picture" 
                 alt="a picture of me"
             >
+        </div>
         
         <div class="my-description-container">
-            <div class="description-preheader">
-                بسم الله الرحمن الرحيم
-            </div>
             <div class="description-header">
                 Hey, I'm Mostafa
             </div>
@@ -106,10 +110,20 @@ export default {
     margin-top: 60px;
 }
 
-.my-picture {
-    width: 100%;
-    max-width: 300px;
+.my-picture-container {
+    height: 300px;
+    width: 300px;
+    overflow: hidden;
+    margin-left: auto;
+    margin-right: auto;
     border-radius: 50%;
+    border: 6px solid getColor("off-white");
+}
+
+.my-picture {
+    height: 100%;
+    position: relative;
+    left: -45px;
 }
 
 .contact-information-container {
@@ -119,7 +133,8 @@ export default {
     justify-content: center;
     align-items: center;
     font-size: 18px;
-    margin-top: 50px;
+    margin-top: 80px;
+    margin-bottom: 80px;
 }
 
 .contact-information-section {
@@ -162,7 +177,7 @@ a {
 }
 
 .my-description-container {
-    margin-top: 30px;
+    margin-top: 60px;
 }
 
 .description-header {
@@ -172,6 +187,7 @@ a {
 
 .description-preheader {
     color: getColor("light-purple");
+    margin-bottom: 10px;
 }
 
 .description-main {
@@ -206,7 +222,7 @@ a {
 }
 
 .interests-header {
-    margin-top: 40px;
+    margin-top: 80px;
 }
 
 @media screen and (min-width: $tabletWidth) {

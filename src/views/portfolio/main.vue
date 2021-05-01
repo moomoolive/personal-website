@@ -2,123 +2,131 @@
     <div>
 
         <div class="projects-container">
+
             <div
                 v-for="(project, projectIndex) in projects"
                 :key="projectIndex"
                 class="project-container"
             >
-                <div class="project-title">
-                    {{ project.description.title }}
+
+                <div class="computer-display-container">
+                    <img 
+                        src="~@/assets/computerTransparent.png"
+                        class="transparent-computer" 
+                        alt="computer"
+                    >
+                    <img 
+                        :src="require(`@/assets/projectPhotos/${project.pathToPhoto}`)"
+                        class="website-photo" 
+                        :alt="'photo of ' + project.description.title"
+                    >
                 </div>
-                <div class="content-container">
-                    <div class="project-image-container">
-                        <img 
-                            :src="require(`@/assets/projectPhotos/${project.pathToPhoto}`)" 
-                            :alt="'photo of ' + project.description.title"
-                            class="project-image"
-                        >
+
+                <div class="project-description-container">
+                    <div class="project-title">
+                        {{ project.description.title }}
+                    </div>
+                    <div>
+                        {{ project.description.shortText }}
                     </div>
 
-                    <div class="project-description-container">
-
-                        <div>
-                            {{ project.description.shortText }}
-                        </div>
-
-                        <div class="long-project-explanation-container">
-                            
-                            <div class="open-explanation-section" @click="toggleProjectExplanation(project.name)">
-                                <span>
-                                    <fa-icon 
-                                        :icon="
-                                            showingExplanation === project.name ?
-                                                'arrow-down' : 
-                                                `arrow-right`
-                                        " 
-                                        class="explanation-arrow" 
-                                    />
-                                </span>
-                                {{ showingExplanation === project.name ? 'Hide' : "Show" }} Longer Explanation
-                            </div>
-
-                            <collapse-transition :duration="500">
-                                <div v-show="showingExplanation === project.name" class="long-project-explanation">
-                                    {{ project.description.longText }}
-                                </div>
-                            </collapse-transition>
-
-                        </div>
-
-                        <div 
-                            v-if="project.technologies" 
-                            class="tech-stack-container"
+                    <div class="tags-container">
+                        <div
+                            v-for="tag in project.tags"
+                            :key="tag"
+                            class="tag-container"
                         >
-                            
-                            <div class="open-stack-section" @click="toggleStack(project.name)">
+                            <fa-icon icon="hashtag" class="hashtag" />
+                            {{ tag }}
+                        </div>
+                    </div>
+
+                    <div class="long-project-explanation-container">
+                        
+                        <div class="open-explanation-section" @click="toggleProjectExplanation(project.name)">
+                            <span>
                                 <fa-icon 
-                                    icon="server" 
-                                    :class="`stack-icon`" 
+                                    :icon="
+                                        showingExplanation === project.name ?
+                                            'arrow-down' : 
+                                            `arrow-right`
+                                    " 
+                                    class="explanation-arrow" 
                                 />
-                                {{ showingStack === project.name ? "Hide" : "Show"}} Project Stack
+                            </span>
+                            {{ showingExplanation === project.name ? 'Hide' : "Show" }} Longer Explanation
+                        </div>
+
+                        <collapse-transition :duration="500">
+                            <div v-show="showingExplanation === project.name" class="long-project-explanation">
+                                {{ project.description.longText }}
                             </div>
-                            
-                            <collapse-transition :duration="500">
-                                <div v-show="showingStack === project.name">
-                                    <div
-                                        v-for="(techInfo, stackSide) in project.technologies"
-                                        :key="stackSide"
-                                        class="technologies-container"
-                                    >
-                                        <div :class="`stack-side-header ${stackSide}`">
-                                            {{ capitalize(stackSide) }}
-                                        </div>
-                                        <div class="technology-ordering">
-                                            <div
-                                                v-for="tech in project.technologies[stackSide]"
-                                                :key="tech"
-                                                class="technology-container"
-                                            >
-                                                <div>
-                                                    <fa-icon 
-                                                        :icon="techStackIcons(tech).icon" 
-                                                        :class="`technology-icon ${techStackIcons(tech).color}`" 
-                                                    />
-                                                </div>
-                                                <div>
-                                                    {{ capitalize(tech) }}
-                                                </div>
+                        </collapse-transition>
+
+                    </div>
+
+                    <div 
+                        v-if="project.technologies" 
+                        class="tech-stack-container"
+                    >
+                        
+                        <div class="open-stack-section" @click="toggleStack(project.name)">
+                            <fa-icon 
+                                :icon="
+                                    showingStack === project.name ?
+                                        'arrow-down' : 
+                                        `arrow-right`
+                                " 
+                                :class="`stack-icon`" 
+                            />
+                            {{ showingStack === project.name ? "Hide" : "Show"}} Full Project Stack
+                        </div>
+                        
+                        <collapse-transition :duration="500">
+                            <div v-show="showingStack === project.name">
+                                <div
+                                    v-for="(techInfo, stackSide) in project.technologies"
+                                    :key="stackSide"
+                                    class="technologies-container"
+                                >
+                                    <div :class="`stack-side-header ${stackSide}`">
+                                        {{ capitalize(stackSide) }}
+                                    </div>
+                                    <div class="technology-ordering">
+                                        <div
+                                            v-for="tech in project.technologies[stackSide]"
+                                            :key="tech"
+                                            class="technology-container"
+                                        >
+                                            <div>
+                                                <fa-icon 
+                                                    :icon="techStackIcons(tech).icon" 
+                                                    :class="`technology-icon ${techStackIcons(tech).color}`" 
+                                                />
+                                            </div>
+                                            <div class="technology-text">
+                                                {{ capitalize(tech) }}
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                            </collapse-transition>
-
-                        </div>
-
-                        <div class="tags-container">
-                            <div
-                                v-for="tag in project.tags"
-                                :key="tag"
-                                class="tag-container"
-                            >
-                                <fa-icon icon="hashtag" class="hashtag" />
-                                {{ tag }}
                             </div>
-                        </div>
+                        </collapse-transition>
 
-                        <div class="outbound-icons-container">
-                            <div
-                                v-for="(link, linkIndex) in project.externalLinks"
-                                :key="linkIndex" 
-                                @click="openInNewTab(link.url)"
-                            >
-                                <fa-icon :icon="link.icon || 'globe'" :class="`outbound-icon ${link.iconColor || 'blue'}`" />
-                                <span class="outbound-icon-text">
-                                    {{ link.text || 'Default Text' }}
-                                </span>
-                            </div>
-                        </div>
+                    </div>
 
+                    <div class="outbound-icons-container">
+                        <div
+                            v-for="(link, linkIndex) in project.externalLinks"
+                            :key="linkIndex" 
+                            class="outbound-link-container"
+                            @click="openInNewTab(link.url)"
+                        >
+                            <fa-icon :icon="link.icon || 'globe'" :class="`outbound-icon ${link.iconColor || 'blue'}`" />
+                            <span class="outbound-icon-text">
+                                {{ link.text || 'Default Text' }}
+                            </span>
+                        </div>
                     </div>
 
                 </div>
@@ -194,7 +202,7 @@ export default {
                 case 'express':
                 case 'flask':
                 case 'feathers':
-                    return { icon: 'network-wired' }
+                    return { icon: 'server' }
                 case 'bootstrap':
                     return { icon: ['fab', 'bootstrap'], color: 'purple' }
                 case "AWS":
@@ -217,23 +225,58 @@ export default {
 
 <style lang="scss" scoped>
 .projects-container {
-    margin-top: 10px;
+    margin-top: 50px;
     margin-bottom: 50px;
+    max-width: 1400px;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
 }
 
 .project-container {
-    background: getColor("grey");
-    max-width: 1000px;
-    width: 80%;
+    max-width: 600px;
+    width: 75%;
     margin-left: auto;
     margin-right: auto;
-    padding-top: 20px;
     margin-bottom: 50px;
+    text-align: left;
+}
+
+.project-description-container {
+    background: getColor("grey", 0.4);
     padding-bottom: 20px;
-    padding-left: 10px;
-    padding-right: 10px;
-    border-radius: 4px;
-    @include floatingBoxShadowDarkBackground();
+    padding-left: 20px;
+    padding-right: 20px;
+    border-radius: 2px;
+    padding-top: 20px;
+}
+
+.computer-display-container {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 270px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 35px;
+}
+
+.transparent-computer {
+    width: 100%;
+    position: relative;
+    left: 0;
+    top: 0;
+    z-index: 0;
+}
+
+.website-photo {
+    width: 257px;
+    height: 148px;
+    position: absolute;
+    left: 6px;
+    top: 7px;
 }
 
 .project-title {
@@ -241,21 +284,8 @@ export default {
     color: getColor("light-purple");
 }
 
-.content-container {
-    display: flex;
-    justify-content: flex-start;
-    flex-direction: column;
-    margin-top: 20px;
-}
-
 .project-image-container {
     width: 100%;
-}
-
-.project-description-container {
-    width: 100%;
-    margin-top: 20px;
-    text-align: left;
 }
 
 .project-image {
@@ -312,6 +342,10 @@ export default {
     }
 }
 
+.outbound-link-container {
+    margin-bottom: 7px;
+}
+
 .outbound-icon-text {
     margin-right: 20px;
     cursor: pointer;
@@ -328,11 +362,11 @@ export default {
 }
 
 .tech-stack-container {
-    margin-top: 30px;
+    margin-top: 10px;
 }
 
 .technologies-container {
-    margin-top: 40px;
+    margin-top: 20px;
 }
 
 // this has to be one of the worst names ever
@@ -361,6 +395,10 @@ export default {
 .long-project-explanation {
     margin-top: 10px;
     color: getColor("silver");
+}
+
+.technology-text {
+    margin-bottom: 15px;
 }
 
 .stack-side-header {
@@ -432,18 +470,8 @@ export default {
         padding-right: 20px;
     }
 
-    .content-container {
-        flex-direction: row;
-    }
-
     .project-image-container {
         width: 30%;
-    }
-
-    .project-description-container {
-        width: 60%;
-        margin-top: 0;
-        margin-left: 40px;
     }
 
     .project-title {
@@ -455,10 +483,25 @@ export default {
         margin-left: 0 !important;
     }
 
+    .transparent-computer {
+        
+    }
+
+    .computer-display-container  {
+        width: 370px;
+    }
+
+    .website-photo {
+        width: 357px;
+        height: 208px;
+        left: 7px;
+        top: 8px;
+    }
+
 }
 
 @media screen and (min-width: $desktopWidth) {
-  .project-container {
+    .project-container {
         padding-left: 27px;
         padding-right: 27px;
     }

@@ -4,7 +4,7 @@
         <div class="main-navigation">
             
             <div class="website-logo " @click="redirect('/')">
-                <fa-icon icon="laptop-code" class="navigation-icon" />
+                <fa-icon icon="laptop-code" class="navigation-icon logo" />
             </div>
 
             <div class="left-side-navigation">
@@ -87,12 +87,13 @@ export default {
             this.showNavigation = false
         },
         redirect(path="/portfolio") {
-            if (path === this.$route.fullPath)
-                return
             this.closeNavigationMenu()
-            return this.$router.push(path)
+            if (path !== this.$route.fullPath) {
+                return this.$router.push(path)
+            }
         },
         openInNewTab(url="https://random.site") {
+            this.closeNavigationMenu()
             return urlHelpers.openURLInNewTab(url)
         }
     }
@@ -109,10 +110,11 @@ export default {
 .website-logo {
     position: absolute;
     left: 20px;
+
 }
 
 .main-navigation {
-    background: getColor("light-grey");
+    background: transparent;
     padding-top: 7px;
     padding-bottom: 7px;
 }
@@ -126,14 +128,14 @@ export default {
     color: getColor("light-purple");
     font-size: 28px;
     cursor: pointer;
+
+    &:hover {
+        color: getColor("light-blue");
+    }
 }
 
 .navigation-pages-list-container {
-    background: getColor("light-grey");
-
-    &.closed {
-        background: getColor("grey");
-    }
+    background: getColor("grey", 0.87);
 }
 
 .navigation-page-container {
@@ -163,13 +165,15 @@ a {
  
 .large-screen-navigation {
     display: none;
+    cursor: default;
 }
 
 .large-screen-navigation-item {
-    margin-right: 15px;
-    font-size: 20px;
+    margin-right: 35px;
+    font-size: 19px;
     position: relative;
     bottom: 5px;
+    cursor: pointer;
 
     &:last-child {
         margin-right: 0;
@@ -209,6 +213,10 @@ a {
 
   .website-logo {
       top: 12px;
+  }
+
+  .left-side-navigation {
+      margin-right: 30px;
   }
   
 }
