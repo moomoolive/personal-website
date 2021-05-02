@@ -72,15 +72,15 @@ a {
 }
 
 ::-webkit-scrollbar-track {
-  background: getColor("off-white");
+  background: getColor("dark-grey");
 }
 
 ::-webkit-scrollbar-thumb {
-  background: getColor("grey");
+  background: getColor("grey", 0.6);
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: getColor("grey");
+  background: getColor("grey", 0.6);
 }
 
 .app-header {

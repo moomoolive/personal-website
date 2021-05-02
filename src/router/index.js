@@ -1,6 +1,8 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Home from '../views/Home.vue'
+
+import Home from '@/views/Home.vue'
+import portfolio from '@/views/portfolio/main.vue' 
 
 Vue.use(VueRouter)
 
@@ -13,7 +15,7 @@ const routes = [
   {
     path: '/portfolio',
     name: "portfolio",
-    component: () => import(/* webpackPrefetch: true */ `@/views/portfolio/main.vue`)
+    component: portfolio
   },
   {
     path: '/about',

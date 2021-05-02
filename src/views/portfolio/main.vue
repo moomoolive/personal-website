@@ -26,7 +26,7 @@
                     <div class="project-title">
                         {{ project.description.title }}
                     </div>
-                    <div>
+                    <div class="short-text-container">
                         {{ project.description.shortText }}
                     </div>
 
@@ -65,10 +65,7 @@
 
                     </div>
 
-                    <div 
-                        v-if="project.technologies" 
-                        class="tech-stack-container"
-                    >
+                    <div :class="`tech-stack-container ${project.technologies ? '' : 'invisible'}`">
                         
                         <div class="open-stack-section" @click="toggleStack(project.name)">
                             <fa-icon 
@@ -363,6 +360,10 @@ export default {
 
 .tech-stack-container {
     margin-top: 10px;
+
+    &.invisible {
+        visibility: hidden;
+    }
 }
 
 .technologies-container {
@@ -483,10 +484,6 @@ export default {
         margin-left: 0 !important;
     }
 
-    .transparent-computer {
-        
-    }
-
     .computer-display-container  {
         width: 370px;
     }
@@ -504,6 +501,10 @@ export default {
     .project-container {
         padding-left: 27px;
         padding-right: 27px;
+    }
+
+    .short-text-container {
+        height: 80px;
     }
 }
 </style>

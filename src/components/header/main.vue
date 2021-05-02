@@ -128,10 +128,6 @@ export default {
     color: getColor("light-purple");
     font-size: 28px;
     cursor: pointer;
-
-    &:hover {
-        color: getColor("light-blue");
-    }
 }
 
 .navigation-pages-list-container {
