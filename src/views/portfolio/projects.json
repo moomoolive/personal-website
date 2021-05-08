@@ -1,7 +1,10 @@
 [
     {
         "name": "khateebRemind",
-        "pathToPhoto": "khateebRemind.png",
+        "visualRepersentation": {
+            "iframe": true,
+            "pathToVisual": "https://khateebs.com/login"
+        },
         "description": {
             "title": "Khateeb Remind",
             "shortText": "An app that automates khateeb scheduling and reminders (read more below), for institutions and mosques with many khateebs. This app was developed in response to issues the University of Calgary (UofC) Muslim Student Association (MSA) was having with scheduling khateebs.",
@@ -37,7 +40,10 @@
     },
     {
         "name": "ilmConnect",
-        "pathToPhoto": "ilmConnect.png",
+        "visualRepersentation": {
+            "iframe": true,
+            "pathToVisual": "https://maqraathafs.ilmconnect.com/"
+        },
         "description": {
             "title": "IlmConnect",
             "shortText": "A commercial school management SASS-product for Islamic Schools. At it's height it had about 4,000 active users. Unfortunately, the product is no longer active, but legacy instances still exists like the link below.",
@@ -60,7 +66,10 @@
     },
     {
         "name": "burdy",
-        "pathToPhoto": "burdy.png",
+        "visualRepersentation": {
+            "iframe": false,
+            "pathToVisual": "burdy.png"
+        },
         "description": {
             "title": "Burdy",
             "shortText": "A small app that scrapes Amazon reviews, then perform sentimental analysis on them labeling them into a few categories, including 'pain-points', 'what they liked about the product', etc.",
@@ -90,7 +99,10 @@
     },
     {
         "name": "pomodoroTimer",
-        "pathToPhoto": "pomodoroTimer.png",
+        "visualRepersentation": {
+            "iframe": true,
+            "pathToVisual": "https://pomotimer.site/"
+        },
         "description": {
             "title": "Pomodoro Timer",
             "shortText": "A dead-simple pomodoro timer that I use on the daily. Works great offline and can be downloaded like a native app on mobile, tablet, and desktop.",

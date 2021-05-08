@@ -1,134 +1,135 @@
 <template>
     <div>
 
-        <div class="projects-container">
+        <div class="projects-display-container">
 
             <div
                 v-for="(project, projectIndex) in projects"
                 :key="projectIndex"
                 class="project-container"
             >
+                <div class="project-display-container">
+                
+                    <div class="project-photo-container">
+                        <iframe
+                            v-if="project.visualRepersentation.iframe"
+                            :src="project.visualRepersentation.pathToVisual"
+                            class="iframe-size" 
+                        />
+                        <img 
+                            v-else
+                            :src="require(`@/assets/projectPhotos/${project.visualRepersentation.pathToVisual}`)"
+                            class="project-photo" 
+                            :alt="'photo of ' + project.description.title"
+                        >
+                    </div>
 
-                <div class="computer-display-container">
-                    <img 
-                        src="~@/assets/computerTransparent.png"
-                        class="transparent-computer" 
-                        alt="computer"
-                    >
-                    <img 
-                        :src="require(`@/assets/projectPhotos/${project.pathToPhoto}`)"
-                        class="website-photo" 
-                        :alt="'photo of ' + project.description.title"
-                    >
+                    <div class="project-info-container">
+                        
+                        <div class="project-title-container">
+                            {{ project.description.title }}
+                        </div>
+
+                        <div class="outbound-icons-container">
+                            <div
+                                v-for="(link, linkIndex) in project.externalLinks"
+                                :key="linkIndex" 
+                                class="outbound-link-container"
+                                @click="openInNewTab(link.url)"
+                            >
+                                <fa-icon :icon="link.icon || 'globe'" :class="`outbound-icon ${link.iconColor || 'blue'}`" />
+                                <span class="outbound-icon-text">
+                                    {{ link.text || 'Default Text' }}
+                                </span>
+                            </div>
+                        </div>
+                        
+                        <div class="project-short-description-container">
+                            {{ project.description.shortText }}
+                        </div>
+
+                        <div class="tags-container">
+                            <div
+                                v-for="tag in project.tags"
+                                :key="tag"
+                                class="tag-container"
+                            >
+                                <fa-icon icon="hashtag" class="hashtag" />
+                                {{ tag }}
+                            </div>
+                        </div>
+
+                    </div>
+
                 </div>
 
-                <div class="project-description-container">
-                    <div class="project-title">
-                        {{ project.description.title }}
-                    </div>
-                    <div class="short-text-container">
-                        {{ project.description.shortText }}
-                    </div>
+                <div>
 
-                    <div class="tags-container">
-                        <div
-                            v-for="tag in project.tags"
-                            :key="tag"
-                            class="tag-container"
-                        >
-                            <fa-icon icon="hashtag" class="hashtag" />
-                            {{ tag }}
-                        </div>
-                    </div>
-
-                    <div class="long-project-explanation-container">
-                        
-                        <div class="open-explanation-section" @click="toggleProjectExplanation(project.name)">
+                    <!-- toggle full tech stack with icons -->
+                    <div
+                        v-if="project.technologies" 
+                        class="drop-down-toggle-container" 
+                        @click="toggleStack(project.name)"
+                    >
+                        <span>
                             <span>
-                                <fa-icon 
-                                    :icon="
-                                        showingExplanation === project.name ?
-                                            'arrow-down' : 
-                                            `arrow-right`
-                                    " 
-                                    class="explanation-arrow" 
-                                />
+                                <fa-icon icon="eye" class="dropdown-icon"/>
                             </span>
-                            {{ showingExplanation === project.name ? 'Hide' : "Show" }} Longer Explanation
-                        </div>
-
-                        <collapse-transition :duration="500">
-                            <div v-show="showingExplanation === project.name" class="long-project-explanation">
-                                {{ project.description.longText }}
-                            </div>
-                        </collapse-transition>
-
+                            {{ showingStack === project.name ? 'Hide' : 'Show' }} Project Stack
+                        </span>
                     </div>
 
-                    <div :class="`tech-stack-container ${project.technologies ? '' : 'invisible'}`">
-                        
-                        <div class="open-stack-section" @click="toggleStack(project.name)">
-                            <fa-icon 
-                                :icon="
-                                    showingStack === project.name ?
-                                        'arrow-down' : 
-                                        `arrow-right`
-                                " 
-                                :class="`stack-icon`" 
-                            />
-                            {{ showingStack === project.name ? "Hide" : "Show"}} Full Project Stack
-                        </div>
-                        
-                        <collapse-transition :duration="500">
-                            <div v-show="showingStack === project.name">
-                                <div
-                                    v-for="(techInfo, stackSide) in project.technologies"
-                                    :key="stackSide"
-                                    class="technologies-container"
-                                >
-                                    <div :class="`stack-side-header ${stackSide}`">
-                                        {{ capitalize(stackSide) }}
-                                    </div>
-                                    <div class="technology-ordering">
-                                        <div
-                                            v-for="tech in project.technologies[stackSide]"
-                                            :key="tech"
-                                            class="technology-container"
-                                        >
-                                            <div>
-                                                <fa-icon 
-                                                    :icon="techStackIcons(tech).icon" 
-                                                    :class="`technology-icon ${techStackIcons(tech).color}`" 
-                                                />
-                                            </div>
-                                            <div class="technology-text">
-                                                {{ capitalize(tech) }}
-                                            </div>
+                    <collapse-transition :duration="500">
+                        <div v-show="showingStack === project.name" class="all-technologies-container">
+                            <div
+                                v-for="(techInfo, stackSide) in project.technologies"
+                                :key="stackSide"
+                                class="technologies-container"
+                            >
+                                <div :class="`stack-side-header ${stackSide}`">
+                                    {{ capitalize(stackSide) }}
+                                </div>
+                                <div class="technology-ordering">
+                                    <div
+                                        v-for="tech in project.technologies[stackSide]"
+                                        :key="tech"
+                                        class="technology-container"
+                                    >
+                                        <div>
+                                            <fa-icon 
+                                                :icon="techStackIcons(tech).icon" 
+                                                :class="`technology-icon ${techStackIcons(tech).color}`" 
+                                            />
+                                        </div>
+                                        <div class="technology-text">
+                                            {{ capitalize(tech) }}
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        </collapse-transition>
+                        </div>
+                    </collapse-transition>
 
-                    </div>
-
-                    <div class="outbound-icons-container">
-                        <div
-                            v-for="(link, linkIndex) in project.externalLinks"
-                            :key="linkIndex" 
-                            class="outbound-link-container"
-                            @click="openInNewTab(link.url)"
-                        >
-                            <fa-icon :icon="link.icon || 'globe'" :class="`outbound-icon ${link.iconColor || 'blue'}`" />
-                            <span class="outbound-icon-text">
-                                {{ link.text || 'Default Text' }}
+                    <!-- toggle long explanation -->
+                    <div>
+                        <div class="drop-down-toggle-container" @click="toggleProjectExplanation(project.name)">
+                            <span>
+                                <fa-icon icon="book" class="dropdown-icon"/>
                             </span>
+                            {{ showingExplanation === project.name ? 'Hide' : "Show" }} Long Explanation
                         </div>
                     </div>
+
+                    <collapse-transition :duration="500">
+                        <div v-show="showingExplanation === project.name" class="long-project-explanation">
+                            {{ project.description.longText }}
+                        </div>
+                    </collapse-transition>
 
                 </div>
             </div>
         </div>
+        
     </div>
 </template>
 
@@ -142,6 +143,7 @@ import { CollapseTransition } from "@ivanv/vue-collapse-transition"
 export default {
     name: "portfolio",
     components: {
+        // eslint-disable-next-line
         CollapseTransition
     },
     data() {
@@ -213,6 +215,11 @@ export default {
             }
         }
     },
+    computed: {
+        project1() {
+            return this.projects[0]
+        }
+    },
     created() {
         this.resetShowingStack()
         this.resetShowingExplanation()
@@ -221,10 +228,16 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.projects-container {
-    margin-top: 50px;
+.projects-display-container {
     margin-bottom: 50px;
+}
+
+.project-display-container {
+    position: relative;
+    margin-top: 50px;
+    width: 90%;
     max-width: 1400px;
+    flex-direction: column;
     margin-left: auto;
     margin-right: auto;
     display: flex;
@@ -232,95 +245,77 @@ export default {
     flex-wrap: wrap;
 }
 
-.project-container {
-    max-width: 600px;
-    width: 75%;
+.project-photo-container {
+    width: 90vw;
+    height: 60vw;
+    position: relative;
+    z-index: 1;
+    margin-bottom: 20px;
+    overflow: hidden;
+    border: none;
+    outline: none;
+}
+
+.project-photo {
+    width: 100%;
+    height: 100%;
+}
+
+.iframe-size {
+    height: 100%;
     margin-left: auto;
     margin-right: auto;
-    margin-bottom: 50px;
+    width: 100%;
+    border: none;
+    outline: none;
+}
+
+.project-info-container {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    z-index: 2;
     text-align: left;
 }
 
-.project-description-container {
-    background: getColor("grey", 0.4);
-    padding-bottom: 20px;
-    padding-left: 20px;
-    padding-right: 20px;
-    border-radius: 2px;
+.project-title-container {
+    font-size: 30px;
+}
+
+.project-short-description-container {
+    font-size: 17px;
+    color: getColor('silver');
+    position: relative;
+    top: 20px;
+    background: getColor('dark-grey', 0.8);
+    border-radius: 4px;
     padding-top: 20px;
+    padding-bottom: 20px;
 }
 
-.computer-display-container {
-    position: relative;
-    top: 0;
-    left: 0;
-    width: 270px;
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 35px;
+.dropdown-icon {
+    color: getColor('purple');
+    margin-right: 5px;
 }
 
-.transparent-computer {
-    width: 100%;
-    position: relative;
-    left: 0;
-    top: 0;
-    z-index: 0;
-}
-
-.website-photo {
-    width: 257px;
-    height: 148px;
-    position: absolute;
-    left: 6px;
-    top: 7px;
-}
-
-.project-title {
-    font-size: 23px;
-    color: getColor("light-purple");
-}
-
-.project-image-container {
-    width: 100%;
-}
-
-.project-image {
-    width: 100%;
-    margin-left: auto;
-    margin-right: auto;
-    border-radius: 2px;
-}
-
-.outbound-icons-container {
+.drop-down-toggle-container {
+    font-size: 15px;
+    cursor: pointer;
+    text-align: center;
     margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+
+    &:hover {
+        color: getColor("light-blue");
+    }
+}
+
+.tags-container {
+    margin-top: 40px;
     display: flex;
     flex-wrap: wrap;
-    justify-content: flex-start;
-    align-items: center;
-}
-
-.outbound-icon {
-    font-size: 13px;
-    margin-right: 3px;
-    color: getColor('light-blue');
-
-    &.green {
-        color: getColor('light-green');
-    }
-
-    &.orange {
-        color: getColor("light-orange");
-    }
-}
-
-.hashtag {
-    font-size: 12px;
-}
-
-.stack-icon, .explanation-arrow {
-    color: getColor("light-purple");
-    margin-right: 5px;
 }
 
 .tag-container {
@@ -339,6 +334,14 @@ export default {
     }
 }
 
+.outbound-icons-container {
+    margin-top: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: center;
+}
+
 .outbound-link-container {
     margin-bottom: 7px;
 }
@@ -352,22 +355,33 @@ export default {
     }
 }
 
-.tags-container {
-    margin-top: 40px;
-    display: flex;
-    flex-wrap: wrap;
-}
-
-.tech-stack-container {
-    margin-top: 10px;
-
-    &.invisible {
-        visibility: hidden;
-    }
-}
-
 .technologies-container {
     margin-top: 20px;
+    margin-left: 30px;
+    margin-right: 30px;
+}
+
+.all-technologies-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    max-width: 1400px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.outbound-icon {
+    font-size: 13px;
+    margin-right: 3px;
+    color: getColor('light-blue');
+
+    &.green {
+        color: getColor('light-green');
+    }
+
+    &.orange {
+        color: getColor("light-orange");
+    }
 }
 
 // this has to be one of the worst names ever
@@ -377,6 +391,16 @@ export default {
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
+    margin-top: 10px;
+}
+
+.long-project-explanation {
+    margin-top: 10px;
+    color: getColor("silver");
+    width: 90%;
+    max-width: 1400px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .technology-container {
@@ -389,17 +413,8 @@ export default {
     margin-right: 20px;
 }
 
-.long-project-explanation-container {
-    margin-top: 20px;
-}
-
-.long-project-explanation {
-    margin-top: 10px;
-    color: getColor("silver");
-}
-
-.technology-text {
-    margin-bottom: 15px;
+.project-container {
+    margin-bottom: 150px;
 }
 
 .stack-side-header {
@@ -450,61 +465,114 @@ export default {
     }
 }
 
-.open-explanation-section, .open-stack-section {
-    cursor: pointer;
+.outbound-icon {
+    font-size: 13px;
+    margin-right: 3px;
+    color: getColor('light-blue');
+
+    &.green {
+        color: getColor('light-green');
+    }
+
+    &.orange {
+        color: getColor("light-orange");
+    }
 }
 
-.homepage-background {
-  height: 100% !important;
-  width: 95vw !important;
-  margin-left: auto;
-  margin-right: auto;
-  position: fixed;
-  z-index: -1;
+.hashtag {
+    font-size: 12px;
+}
+
+.stack-icon {
+    color: getColor("light-purple");
+    margin-right: 5px;
 }
 
 @media screen and (min-width: $tabletWidth) {
-    .project-container {
-        padding-top: 25px;
-        padding-top: 25px;
+    .drop-down-toggle-container {
+        font-size: 18px;
+        width: 240px;
+    }
+}
+
+@media screen and (min-width: $desktopWidth) {
+    .projects-display-container {
+        margin-top: 90px;
+        margin-bottom: 80px;
+    }
+
+    .project-display-container {
+        flex-direction: row;
+    }
+
+    .project-info-container {
+        width: 40%;
+        margin-right: 0;
+    }
+    
+    .tags-container {
+        justify-content: flex-end;
+    }
+
+    .outbound-icon-text {
+        margin-left: 0;
+        margin-right: 1px;
+
+        &:last-child {
+            margin-right: 0;
+        }
+    }
+
+    .outbound-icon {
+        margin-left: 18px;
+    }
+
+    .tag-container {
+        &:last-child {
+            margin-right: 0px;
+        }
+    }
+    
+    .outbound-icons-container {
+        justify-content: flex-end;
+        width: 100%;
+    }
+
+    .project-title-container {
+        font-size: 40px;
+        text-align: right;
+    }
+
+    .project-short-description-container {
+        font-size: 15px;
+        color: getColor('silver');
+        position: relative;
+        width: 120%;
+        right: 27.5%;
+        background: getColor('grey', 1);
+        min-height: 130px;
         padding-left: 20px;
         padding-right: 20px;
     }
 
-    .project-image-container {
-        width: 30%;
+
+    .project-photo-container {
+        width: 50vw;
+        max-width: 830px;
+        height: 30vw;
+        max-height: 500px;
+        min-height: 400px;
+        margin-bottom: 20px;
     }
 
-    .project-title {
-        text-align: left;
-        font-size: 27px;
-    }
-    
-    .project-image {
-        margin-left: 0 !important;
+    .drop-down-toggle-container {
+        font-size: 20px;
+        margin-top: 20px;
+        width: 250px;
     }
 
-    .computer-display-container  {
-        width: 370px;
-    }
-
-    .website-photo {
-        width: 357px;
-        height: 208px;
-        left: 7px;
-        top: 8px;
-    }
-
-}
-
-@media screen and (min-width: $desktopWidth) {
-    .project-container {
-        padding-left: 27px;
-        padding-right: 27px;
-    }
-
-    .short-text-container {
-        height: 80px;
+    .technologies-container {
+        margin-top: 40px;
     }
 }
 </style>

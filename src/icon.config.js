@@ -13,7 +13,9 @@ import {
     faMailBulk,
     faBrain,
     faPen,
-    faNewspaper
+    faNewspaper,
+    faEye,
+    faBook
 } from '@fortawesome/free-solid-svg-icons'
 
 import {
@@ -60,5 +62,7 @@ export default [
     faGithubAlt,
     faLinkedin,
     faAws,
-    faNewspaper
+    faNewspaper,
+    faEye,
+    faBook
 ]
