@@ -3,8 +3,14 @@ const path = require('path')
 module.exports = {
     productionSourceMap: false,
     pwa: {
-        name: "mostafa's website",
-        workboxPluginMode: 'GenerateSW'
+        name: "Mostafa's Website",
+        workboxPluginMode: 'GenerateSW',
+        workboxOptions: {
+            // makes service worker give control to updated service worker
+            // on next reload if one is detected
+            skipWaiting: true,
+            clientsClaim: true
+        }
     },
     devServer: {
         port: 8060

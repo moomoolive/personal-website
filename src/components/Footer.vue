@@ -25,7 +25,7 @@
             class="source-code-text"
             @click="openInNewTab(websiteRepo)"
         >
-            Check Out Source Code
+            Check out the Source Code
         </div>
         <div 
             class="framework-text" 

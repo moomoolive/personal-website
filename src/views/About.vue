@@ -16,15 +16,17 @@
         
         <div class="my-description-container">
             <div class="description-header">
-                Hey, I'm Mostafa
+                Hey, I'm Mostafa...
             </div>
             <div class="description-main">
-                ...and I'm a really cool and handsome dude!<br><br>
+                ...and I know I'm REALLY handsome, so stop staring so hard!
+                Like it's okay to take peek or two but sheesh -
+                have some modesty.<br><br>
                 
                 Jokes aside,
                 I'm a full-stack web developer who's strength lies in developing
                 with Javascript - on both sides of the stack. I also have the ability to
-                drop down close to the metal to code in Rust and have experience
+                drop down close to metal to write code in Rust and have experience
                 with the Sci-Py Python libraries (Tensorflow, Numpy, etc.).<br><br>
 
                 I studied at the University of Calgary and currently reside in Calgary,
@@ -48,23 +50,23 @@
         </div>
 
         <div class="contact-information-container">
-            <div class="contact-information-section">
-                <a :href="`mailto:${email}`">
-                    <fa-icon icon="pen" class="green icon" />
-                    Email Me
-                </a>
-            </div>
-            <div class="contact-information-section" @click="openInNewTab(linkedInLink)">
-                <fa-icon :icon="['fab', 'linkedin']" class="icon purple" />
-                Connect With Me
+            <div class="contact-information-section" @click="openInNewTab(resumeLink)">
+                <fa-icon icon="newspaper" class="icon orange" />
+                Take a Look at my Resume
             </div>
             <div class="contact-information-section" @click="openInNewTab(githubLink)">
                 <fa-icon :icon="['fab', 'github-alt']" class="icon red" />
                 Check Out My Projects
             </div>
-            <div class="contact-information-section" @click="openInNewTab(resumeLink)">
-                <fa-icon icon="newspaper" class="icon orange" />
-                Take a Look at my Resume
+            <div class="contact-information-section" @click="openInNewTab(linkedInLink)">
+                <fa-icon :icon="['fab', 'linkedin']" class="icon purple" />
+                Connect With Me
+            </div>
+            <div class="contact-information-section">
+                <a :href="`mailto:${email}`">
+                    <fa-icon icon="pen" class="green icon" />
+                    Email Me
+                </a>
             </div>
         </div>
 
@@ -86,10 +88,10 @@ export default {
             linkedInLink: Config.contactConfig.linkedIn,
             resumeLink: Config.externalLinksConfig.resume,
             interests: [
+                "Jellybeans",
                 "Progressive Web Apps", 
-                "Web Assembly", 
+                "Single Page Applications", 
                 "Natural Language Processing",
-                "Jellybeans"
             ]
         }
     },
@@ -198,6 +200,7 @@ a {
 .interests-container {
     margin-top: 30px;
     display: flex;
+    flex-direction: column;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
@@ -227,6 +230,10 @@ a {
 
 @media screen and (min-width: $tabletWidth) {
     .contact-information-container {
+        flex-direction: row;
+    }
+
+    .interests-container {
         flex-direction: row;
     }
 }

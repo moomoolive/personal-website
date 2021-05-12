@@ -7,8 +7,8 @@
         },
         "description": {
             "title": "Khateeb Remind",
-            "shortText": "An app that automates khateeb scheduling and reminders (read more below), for institutions and mosques with many khateebs. This app was developed in response to issues the University of Calgary (UofC) Muslim Student Association (MSA) was having with scheduling khateebs.",
-            "longText": "Your probably asking yourself what a 'khateeb' is, well a khateeb is an individual who gives the Friday prayer sermon for a Muslim Community, usaully at a mosque. Before this app was created the scheduling and reminding of dozens of khateebs at the UofC was done manually, which ultimately lead to some serious mishaps. This app essentially automates the scheduling of khateebs - think of it like a specialized Google Calendar. Khateebs login see their schedule, recieve push notifications and emails, and those who schedule khateebs have a central interface to track all khateebs and communicate with the schedule with them. There's much more to the app, if you're interested in learning more I suggest reading the System Specification Document. This is a free and open-source project."
+            "shortText": "A progressive web-app that automates the process of scheduling Friday Sermons at Muslim Community Centers and Mosques",
+            "longText": "Originally created for the University of Calgary Muslim Students Association, Khateeb Remind is now open-sourced and free for anyone to use. Khateeb remind aims to give a 'native-like' experience by using some of the more cutting-edge features of progressive web-apps like downloadablity, push notifications, offline mode, etc. The app is also blazing fast for it's size, with a bundle size of < 200kb. Check out the System Specification Document for more info."
         },
         "tags": ["node", "express", "vue", "mongo"],
         "technologies": {
@@ -46,8 +46,8 @@
         },
         "description": {
             "title": "IlmConnect",
-            "shortText": "A commercial school management SASS-product for Islamic Schools. At it's height it had about 4,000 active users. Unfortunately, the product is no longer active, but legacy instances still exists like the link below.",
-            "longText": "This is a startup product I helped build a while ago and has recently been discontinued. It was a full school management system that included Parents, Admins, students, classes. As stated before at it's height it had about 4,000 users (about 10 schools or so). This product was worked on by a small team, and I personally worked on both sides of the stack for this particular project. For obvious reasons I'm not at liberty to show the source code."
+            "shortText": "A commercial school management SASS-product which has served over 4,000 users",
+            "longText": "This is a startup product I helped build a while ago and has recently been discontinued. It was a full school management system for Islamic Schools that included parents, admins, students, classes. At it's height it had about 4,000 users active users (about 10 schools or so). This product was worked on by a small team, and I personally worked on both sides of the stack for this particular project. Some legacy instances of the app still exist like the one in the link above."
         },
         "tags": ["feathers", "node", "vue", "postgres"],
         "technologies": {
@@ -72,8 +72,8 @@
         },
         "description": {
             "title": "Burdy",
-            "shortText": "A small app that scrapes Amazon reviews, then perform sentimental analysis on them labeling them into a few categories, including 'pain-points', 'what they liked about the product', etc.",
-            "longText": "In another life I used to do copywriting work, and one thing that copywriters do a lot is look at reviews, because usually you'll find the words your audience wants to hear in reviews. This app attempted to automate this process of looking through reviews, so copywriters could delve right into analysis of information and create great copy faster. This was intended to become a commerical product, but unfortunately for various reasons it didn't work out. If your interested in the full architecuture of the app take a look at the System Specification Document."
+            "shortText": "A web-app that finds customer pain-points in Amazon product reviews and draws themes from them",
+            "longText": "In another life I used to do copywriting work, and one thing that copywriters do a lot is look at reviews, because usually you'll find words that resonate with your audience in them. This app attempted to automate this process of looking through reviews, so copywriters could delve right into analysis of information and create great copy faster. It achieved this by scraping reviews off a particular Amazon product and then performing sentimental analysis on the reviews, which would group them into common themes. If your interested in the full architecuture of the app take a look at the System Specification Document."
         },
         "tags": ["python", "flask", "vue", "postgres"],
         "technologies": {
@@ -105,10 +105,10 @@
         },
         "description": {
             "title": "Pomodoro Timer",
-            "shortText": "A dead-simple pomodoro timer that I use on the daily. Works great offline and can be downloaded like a native app on mobile, tablet, and desktop.",
-            "longText": "I created this for a very simple reason: I wanted a timer that was ONLY a timer and not bloated with a million other features and ads, especially not ads. Originally I had an app downloaded that was like this but for some odd reason after an hour or two of using it, it would create absolutely MASSIVE memory leaks. So I decided to recreate it, in an open-source manner."
+            "shortText": "A dead-simple pomodoro timer that I use on the daily",
+            "longText": "I created this timer for one simple reason: I wanted a timer that was ONLY a timer and not bloated with a million other features and ads, especially not ads."
         },
-        "tags": ["javascript", "html", "css", "PWA"],
+        "tags": ["javascript", "html", "css"],
         "externalLinks": [
             {
                 "text": "Website",
@@ -118,7 +118,7 @@
             },
             {
                 "text": "Source",
-                "url": "https://github.com/moomoolive/pomodoro_timer",
+                "url": "https://github.com/moomoolive/newPomodoroTimer",
                 "icon": "code-branch",
                 "iconColor": "green"
             }        

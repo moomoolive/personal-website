@@ -98,7 +98,7 @@ a {
   position: fixed;
   height: 100vh !important;
   width: 100vw !important;
-  min-width: 800px !important;
+  min-width: 1100px !important;
   left: 2.5vw;
   top: 0;
   z-index: -1;

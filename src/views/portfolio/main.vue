@@ -51,9 +51,12 @@
                             </div>
                         </div>
                         
+                        <!-- I put a "unix-timestamp-now" query at the end of any iframe
+                        url in order to trick the browser into NOT caching any content from
+                        the iframe origin --> 
                         <iframe
                             v-if="project.visualRepersentation.iframe"
-                            :src="project.visualRepersentation.pathToVisual"
+                            :src="`${project.visualRepersentation.pathToVisual}?unix-timestamp-now=${unixTimestampNow}`"
                             class="iframe-size" 
                         />
 
@@ -194,8 +197,9 @@ export default {
             showingStack: '',
             showingExplanation: '',
             // the amount of time to wait before showing iframes
-            loadingTime: 3_500,
-            isLoading: true
+            loadingTime: 4_500,
+            isLoading: true,
+            unixTimestampNow: Date.now()
         }
     },
     methods: {
@@ -307,7 +311,6 @@ export default {
 
 .project-photo {
     width: 100%;
-    height: 100%;
 }
 
 .iframe-size {
