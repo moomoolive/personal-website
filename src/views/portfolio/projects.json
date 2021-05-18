@@ -8,8 +8,7 @@
         },
         "description": {
             "title": "Khateeb Remind",
-            "shortText": "A progressive web-app that automates the process of scheduling Friday Sermons at Muslim Community Centers and Mosques",
-            "longText": "Originally created for the University of Calgary Muslim Students Association, Khateeb Remind is now open-sourced and free for anyone to use. Khateeb remind aims to give a 'native-like' experience by using some of the more cutting-edge features of progressive web-apps like downloadablity, push notifications, offline mode, etc. The app is also blazing fast for it's size, with a bundle size of < 200kb. Check out the System Specification Document for more info."
+            "shortText": "A progressive web-app that automates the scheduling Friday Sermons at Muslim Community Centers and Mosques"
         },
         "technologies": [
             "vue",
@@ -39,7 +38,7 @@
         "visualRepersentation": {
             "pathToVisual": "ilmConnect.png",
             "overlayText": "IlmConnect",
-            "overlayIcon": "mosque"
+            "overlayIcon": "school"
         },
         "description": {
             "title": "IlmConnect",
@@ -99,8 +98,7 @@
         },
         "description": {
             "title": "Pomodoro Timer",
-            "shortText": "A dead-simple pomodoro timer that I use on the daily",
-            "longText": "I created this timer for one simple reason: I wanted a timer that was ONLY a timer and not bloated with a million other features and ads, especially not ads."
+            "shortText": "A dead-simple pomodoro timer that I use on the daily"
         },
         "technologies": [
             "javascript", 

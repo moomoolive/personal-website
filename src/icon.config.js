@@ -19,7 +19,7 @@ import {
     faPaperPlane,
     faClock,
     faDove,
-    faMosque
+    faSchool
 } from '@fortawesome/free-solid-svg-icons'
 
 import {
@@ -74,5 +74,5 @@ export default [
     faPaperPlane,
     faClock,
     faDove,
-    faMosque
+    faSchool
 ]
