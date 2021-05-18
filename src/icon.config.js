@@ -15,13 +15,16 @@ import {
     faPen,
     faNewspaper,
     faEye,
-    faBook
+    faBook,
+    faPaperPlane,
+    faClock,
+    faDove,
+    faMosque
 } from '@fortawesome/free-solid-svg-icons'
 
 import {
     faJs,
     faVuejs,
-    faSass,
     faDocker,
     faNodeJs,
     faLinkedinIn,
@@ -31,7 +34,9 @@ import {
     faBootstrap,
     faGithubAlt,
     faLinkedin,
-    faAws
+    faAws,
+    faHtml5,
+    faCss3
 } from '@fortawesome/free-brands-svg-icons'
 
 export default [
@@ -43,7 +48,6 @@ export default [
     faServer,
     faJs,
     faVuejs,
-    faSass,
     faMobileAlt,
     faDocker,
     faDatabase,
@@ -64,5 +68,11 @@ export default [
     faAws,
     faNewspaper,
     faEye,
-    faBook
+    faBook,
+    faHtml5,
+    faCss3,
+    faPaperPlane,
+    faClock,
+    faDove,
+    faMosque
 ]
