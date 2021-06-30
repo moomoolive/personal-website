@@ -139,6 +139,8 @@ export default {
                     return { icon: ['fab', 'python'], color: 'yellow' }
                 case 'mongo':
                 case 'postgres':
+                case 'redis':
+                case 'firebase':
                     return { icon: 'database', color: 'red' }
                 case 'bootstrap':
                     return { icon: ['fab', 'bootstrap'], color: 'purple' }
@@ -152,6 +154,12 @@ export default {
                     return { icon: ["fab", "html5"], color: "red" }
                 case 'css':
                     return { icon: ["fab", "css3"], color: "blue" }
+                case 'react':
+                    return { icon: ["fab", "react"], color: "blue" }
+                case 'next.js':
+                    return { icon: "cube", color: "blue" }
+                case "rust":
+                    return { icon: ["fab", "rust"], color: "red" }
                 default:
                     return { icon: techName }
             }

@@ -8,7 +8,9 @@ This repository is dedicated to source code of my personal porfolio website, to 
 Feel free to take this code and use it for your own personal website if you want.
 
 ## Credits
-* Icons are provided by Font-Awesome under [license](https://fontawesome.com/license/free).      
+* Icons are provided by Font-Awesome under [license](https://fontawesome.com/license/free).
+
+* KR Open API photo was taken by [Nastya Dulhiier](https://unsplash.com/@dulgier?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText), hosted on [unsplashed](https://unsplash.com/s/photos/network?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText)
 
 ## Project setup
 ```

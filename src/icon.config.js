@@ -19,7 +19,10 @@ import {
     faPaperPlane,
     faClock,
     faDove,
-    faSchool
+    faSchool,
+    faSeedling,
+    faCube,
+    faExchangeAlt
 } from '@fortawesome/free-solid-svg-icons'
 
 import {
@@ -36,7 +39,8 @@ import {
     faLinkedin,
     faAws,
     faHtml5,
-    faCss3
+    faCss3,
+    faReact
 } from '@fortawesome/free-brands-svg-icons'
 
 export default [
@@ -74,5 +78,9 @@ export default [
     faPaperPlane,
     faClock,
     faDove,
-    faSchool
+    faSchool,
+    faSeedling,
+    faReact,
+    faCube,
+    faExchangeAlt
 ]

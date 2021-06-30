@@ -42,7 +42,7 @@
         },
         "description": {
             "title": "IlmConnect",
-            "shortText": "A commercial school management SASS-product which has served over 4,000 users"
+            "shortText": "A commercial school management SASS-product which has served over 4,000 users and billed aprox ~600K"
         },
         "technologies": [
             "vue",
@@ -58,6 +58,58 @@
                 "url": "https://maqraathafs.ilmconnect.com/",
                 "icon": "globe",
                 "iconColor": "orange"
+            }
+        ]
+    },
+    {
+        "name": "terropia",
+        "visualRepersentation": {
+            "pathToVisual": "terropia.png",
+            "overlayText": "Terropia",
+            "overlayIcon": "seedling"
+        },
+        "description": {
+            "title": "Terropia",
+            "shortText": "A sustainable foods startup that makes growing homegrown food easy and safe"
+        },
+        "technologies": [
+            "react",
+            "next.js",
+            "PWA",
+            "firebase"
+        ],
+        "externalLinks": [
+            {
+                "text": "Live Site",
+                "url": "https://www.terropia.com/",
+                "icon": "globe",
+                "iconColor": "orange"
+            }
+        ]
+    },
+    {
+        "name": "KROpenAPI",
+        "visualRepersentation": {
+            "pathToVisual": "kr_open_api.jpg",
+            "overlayText": "KR Open API",
+            "overlayIcon": "exchange-alt"
+        },
+        "description": {
+            "title": "KR Open API",
+            "shortText": "An open API to programmatically access Khateeb Remind data via REST"
+        },
+        "technologies": [
+            "rust",
+            "redis",
+            "AWS",
+            "docker"
+        ],
+        "externalLinks": [
+            {
+                "text": "Source Code",
+                "url": "https://github.com/moomoolive/burdy",
+                "icon": "code-branch",
+                "iconColor": "green"
             }
         ]
     },
