@@ -172,5 +172,31 @@
                 "iconColor": "green"
             }        
         ]
+    },
+    {
+        "name": "portfolio",
+        "visualRepersentation": {
+            "pathToVisual": "portfolio.png",
+            "overlayText": "Portfolio",
+            "overlayIcon": "paint-brush"
+        },
+        "description": {
+            "title": "This Website",
+            "shortText": "Literally the website you're currently looking at"
+        },
+        "technologies": [
+            "vue",
+            "javascript", 
+            "html", 
+            "css"
+        ],
+        "externalLinks": [
+            {
+                "text": "Source Code",
+                "url": "https://github.com/moomoolive/personal-website",
+                "icon": "code-branch",
+                "iconColor": "green"
+            }
+        ]
     }
 ]

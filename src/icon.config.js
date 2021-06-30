@@ -22,7 +22,8 @@ import {
     faSchool,
     faSeedling,
     faCube,
-    faExchangeAlt
+    faExchangeAlt,
+    faPaintBrush
 } from '@fortawesome/free-solid-svg-icons'
 
 import {
@@ -82,5 +83,6 @@ export default [
     faSeedling,
     faReact,
     faCube,
-    faExchangeAlt
+    faExchangeAlt,
+    faPaintBrush
 ]
